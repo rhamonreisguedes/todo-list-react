@@ -5,17 +5,16 @@ import { useState } from "react";
 const Form = () => {
   const [todo, setTodo] = useState('');
   const [list, setList] = useState([]);
-  const [id, setId] = useState(0);
+  // const [id, setId] = useState(0);
 
   const handleTodo = (e) => {
-    // setTodo(e.target.value);
-    handleId();
-    setTodo({todo: e.target.value, id: id})
+    setTodo(e.target.value)
     console.log(todo);
   }
 
   const handleList = () => {
-    setList(list.concat(todo));
+    setList([...list, todo]);
+    // setId(id + 1);
     console.log(list);
   }
 
@@ -23,24 +22,19 @@ const Form = () => {
     e.preventDefault();
   }
 
-  const handleId = () => {
-    setId(id + 1);
-    console.log(id)
-  }
-
-  console.log(list)
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {list.map((item, key) => <Item key={key} text={item.todo} id={item}/>)}
+        {list.map((todo, key) => <Item key={key} todo={todo}/>)}
         <input
           className="form"
           type="text"
           name="item"
           onChange={handleTodo}
+          placeholder='Digite sua próxima tarefa'
+          maxLength={35}
         />
-        <input type='submit' value='ADD' onClick={handleList}/>
+        <input type='submit' value='Adicionar' className="btn-add" onClick={handleList}/>
       </form>
     </div>
   );

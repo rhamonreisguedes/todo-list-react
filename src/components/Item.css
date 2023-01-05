@@ -1,3 +1,8 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
 .item{
     width: 500px;
     height: 80px;
@@ -5,10 +10,38 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
     box-sizing: border-box;
+    background-color: white;
+}
+
+.item:hover{
+    background-color: #E9D66B;
+}
+
+
+.btn-completed{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    accent-color: #0F9D58;
+  }
+
+.btn-exclude{
+    width: 30px;
+    height: 30px;
+    background-color: #DB4437;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
 }
