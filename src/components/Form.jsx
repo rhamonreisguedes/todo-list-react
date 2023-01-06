@@ -3,7 +3,7 @@ import Item from "./Item";
 import { useState } from "react";
 
 const Form = () => {
-  const [todo, setTodo] = useState();
+  const [todo, setTodo] = useState(null);
   const [list, setList] = useState([]);
   const [id, setId] = useState(0);
 
