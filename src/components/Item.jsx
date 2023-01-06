@@ -1,29 +1,26 @@
 import "./Item.css";
 import { useState } from "react";
 
-const Item = ({ todo, id }) => {
+const Item = ({ todo, deleteTodo }) => {
   const [checked, setChecked] = useState(false);
-  const [delItem, setDelItem] = useState(false);
 
-
-  const todoDone = (e) => {
+  const todoDone = () => {
     if(checked){
       setChecked(false)
     }else{
       setChecked(true)
     }
-    console.log(e.target.id);
   };
 
   return (
-    <div className={checked ? 'item-checked' : 'item'} id={id}>
+    <div className={checked ? 'item-checked' : 'item'}>
       <input type="checkbox" className='btn-completed' onClick={todoDone} />
-      <div className={checked ? 'todo-checked' : 'todo'}>{todo}</div>
+      <div className={checked ? 'todo-checked' : 'todo'}>{todo.text}</div>
       <input
         type="submit"
         className="btn-exclude"
         value="x"
-        onClick={() => console.log("clicou")}
+        onClick={() => deleteTodo(todo.id)}
       />
     </div>
   );

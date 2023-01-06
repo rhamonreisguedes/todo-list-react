@@ -3,15 +3,19 @@ import Item from "./Item";
 import { useState } from "react";
 
 const Form = () => {
-  const [todo, setTodo] = useState(null);
+  const [text, setText] = useState(null);
   const [list, setList] = useState([]);
   const [id, setId] = useState(0);
 
-
-  const handleList = () => {
+  const addTodo = (text) => {
+    const todo = { text: text, id: id };
     setList([...list, todo]);
     setId(id + 1);
-    console.log(list)
+  };
+
+  const deleteTodo = (id) => {
+    const filteredList = list.filter((item) => item.id !== id);
+    setList(filteredList);
   };
 
   const handleSubmit = (e) => {
@@ -21,18 +25,20 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {list.map((todo, key) => (
-          <Item key={key} todo={todo} id={id} />
+        {list.map((todo) => (
+          <div id={todo.id}>
+            <Item todo={todo} deleteTodo={deleteTodo} />
+          </div>
         ))}
         <input
           className="form"
           type="text"
           name="item"
-          onChange={(e) => (setTodo(e.target.value))}
+          onChange={(e) => setText(e.target.value)}
           placeholder="Digite sua próxima tarefa"
           maxLength={35}
         />
-        {todo === "" && (
+        {text === null && (
           <input
             type="submit"
             value="Adicionar"
@@ -40,12 +46,12 @@ const Form = () => {
             disabled
           />
         )}
-        {todo !== "" && (
+        {text !== null && (
           <input
             type="submit"
             value="Adicionar"
             className="btn-add"
-            onClick={handleList}
+            onClick={() => addTodo(text)}
           />
         )}
       </form>
