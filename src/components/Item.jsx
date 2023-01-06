@@ -15,7 +15,9 @@ const Item = ({ todo, deleteTodo }) => {
   return (
     <div className={checked ? 'item-checked' : 'item'}>
       <input type="checkbox" className='btn-completed' onClick={todoDone} />
-      <div className={checked ? 'todo-checked' : 'todo'}>{todo.text}</div>
+      <div className={checked ? 'todo-checked' : 'todo'}>
+          {todo.text}
+      </div>
       <input
         type="submit"
         className="btn-exclude"

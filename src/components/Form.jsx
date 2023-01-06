@@ -25,8 +25,8 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {list.map((todo) => (
-          <div id={todo.id}>
+        {list.map((todo, key) => (
+          <div key={key}>
             <Item todo={todo} deleteTodo={deleteTodo} />
           </div>
         ))}
