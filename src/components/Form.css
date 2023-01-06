@@ -25,6 +25,18 @@
     cursor: pointer;
 }
 
+.btn-add-disabled{
+    background-color: #d2d2d2;
+    padding: 15px;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
 .btn-add:hover{
     background-color: black;
     color: #F4B400;

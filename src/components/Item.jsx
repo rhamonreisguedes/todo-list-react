@@ -1,34 +1,24 @@
 import "./Item.css";
+import { useState } from "react";
 
-const Item = ({ todo }) => {
-  // let clicked = false;
+const Item = ({ todo, id }) => {
+  const [checked, setChecked] = useState(false);
+  const [delItem, setDelItem] = useState(false);
+
 
   const todoDone = (e) => {
-    // const text = document.querySelector("item");
-    // const item = document.querySelector("todo");
-
-    // console.log(text);
-    // console.log(item);
-
-
-    // console.log(e.target.parent);
-    // if (clicked) {
-    //   text.style.textDecoration = "";
-    //   item.style.backgroundColor = "white";
-    //   clicked = false;
-    // } else {
-    //   text.style.textDecoration = "line-through";
-    //   item.style.backgroundColor = "#E9D66B";
-    //   clicked = true;
-    // }
-
-    console.log('clicou')
+    if(checked){
+      setChecked(false)
+    }else{
+      setChecked(true)
+    }
+    console.log(e.target.id);
   };
 
   return (
-    <div className="item">
-      <input type="checkbox" className="btn-completed" onClick={todoDone} />
-      <div className="todo">{todo}</div>
+    <div className={checked ? 'item-checked' : 'item'} id={id}>
+      <input type="checkbox" className='btn-completed' onClick={todoDone} />
+      <div className={checked ? 'todo-checked' : 'todo'}>{todo}</div>
       <input
         type="submit"
         className="btn-exclude"
