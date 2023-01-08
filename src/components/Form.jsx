@@ -3,7 +3,7 @@ import Item from "./Item";
 import { useState } from "react";
 
 const Form = () => {
-  const [text, setText] = useState(null);
+  const [text, setText] = useState('');
   const [list, setList] = useState([]);
   const [id, setId] = useState(0);
 
@@ -11,6 +11,7 @@ const Form = () => {
     const todo = { text: text, id: id };
     setList([...list, todo]);
     setId(id + 1);
+    setText('');
   };
 
   const deleteTodo = (id) => {
@@ -22,23 +23,29 @@ const Form = () => {
     e.preventDefault();
   };
 
+  const changeItemText = (text) => {
+    console.log(text);
+  }
+
   return (
     <div>
+      <div id="root"></div>
       <form onSubmit={handleSubmit}>
         {list.map((todo, key) => (
           <div key={key}>
-            <Item todo={todo} deleteTodo={deleteTodo} />
+            <Item todo={todo} deleteTodo={deleteTodo} changeItemText={changeItemText}/>
           </div>
         ))}
         <input
           className="form"
           type="text"
           name="item"
+          value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Digite sua próxima tarefa"
           maxLength={35}
         />
-        {text === null && (
+        {text === '' && (
           <input
             type="submit"
             value="Adicionar"
@@ -46,7 +53,7 @@ const Form = () => {
             disabled
           />
         )}
-        {text !== null && (
+        {text !== '' && (
           <input
             type="submit"
             value="Adicionar"

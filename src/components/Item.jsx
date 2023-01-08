@@ -1,7 +1,7 @@
 import "./Item.css";
 import { useState } from "react";
 
-const Item = ({ todo, deleteTodo }) => {
+const Item = ({ todo, deleteTodo, changeItemText }) => {
   const [checked, setChecked] = useState(false);
 
   const todoDone = () => {
@@ -16,7 +16,7 @@ const Item = ({ todo, deleteTodo }) => {
     <div className={checked ? 'item-checked' : 'item'}>
       <input type="checkbox" className='btn-completed' onClick={todoDone} />
       <div className={checked ? 'todo-checked' : 'todo'}>
-          {todo.text}
+          <span onClick={() => changeItemText(todo.text)}>{todo.text}</span>
       </div>
       <input
         type="submit"
