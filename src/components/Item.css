@@ -69,3 +69,13 @@ input[type=checkbox] {
     font-size: 1em;
     cursor: pointer;
 }
+
+@media screen and (max-width: 320px) and (min-width: 0) {
+    .item{
+        width: 320px;
+    }
+
+    .item-checked{
+        width: 320px;
+    }
+} 

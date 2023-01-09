@@ -23,9 +23,7 @@ const Form = () => {
     e.preventDefault();
   };
 
-  const changeItemText = (text) => {
-    console.log(text);
-  }
+  console.log(window. innerHeight);
 
   return (
     <div>
@@ -33,7 +31,7 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         {list.map((todo, key) => (
           <div key={key}>
-            <Item todo={todo} deleteTodo={deleteTodo} changeItemText={changeItemText}/>
+            <Item todo={todo} deleteTodo={deleteTodo}/>
           </div>
         ))}
         <input
@@ -43,7 +41,7 @@ const Form = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Digite sua próxima tarefa"
-          maxLength={35}
+          maxLength={window. innerHeight > 500 ? 35 : 15}
         />
         {text === '' && (
           <input

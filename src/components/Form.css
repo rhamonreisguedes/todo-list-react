@@ -41,3 +41,11 @@
     background-color: black;
     color: #F4B400;
 }
+
+
+/* Phone - Portrait */
+@media screen and (max-width: 320px) and (min-width: 0) {
+    .form{
+        width: 320px;
+    }
+} 
