@@ -8,7 +8,7 @@ This TODO List has 3 functions: add, edit and delete.
 
 Please, feel free to leave any comments.
 
-####
+-------------------------------------------------------------------------------------------------------
 
 Lista de Tarefas utilizando React
 
